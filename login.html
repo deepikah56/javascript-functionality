@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Log in</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="https://static.hsappstatic.net/StyleGuideUI/static-3.140/img/sprocket/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://static.hsappstatic.net/StyleGuideUI/static-3.140/img/sprocket/favicon-16x16.png"><link rel="mask-icon" href="https://static.hsappstatic.net/StyleGuideUI/static-3.140/img/sprocket/safari-pinned-tab.svg" color="#FF7A59">
+  <style>
+	.loginform 
+	{
+		width: 323px;
+		margin: 4% auto 2%;
+	}
+	.logo
+	{
+		width:200px;
+	}
+	.form-control 
+	{
+		display: block;
+		width: 100%;
+		height: 42px;
+		padding: 6px 12px;
+		font-size: 14px;
+		line-height: 1.42857143;
+		color: #555;
+		background-color: #f5f8fa;
+		background-image: none;
+		border: 1px solid #cbd6e2;
+		width:80%;
+    
+	}
+	label 
+	{
+		font-family:Avenir Next W02,Helvetica,Arial,sans-serif;
+		font-weight: 500;
+		font-size: 14px;
+	}
+	.register_link{
+		margin-top:3%;
+		font-family:Avenir Next W02,Helvetica,Arial,sans-serif;
+		font-weight: 500;
+		font-size: 14px;
+	}
+	span
+	{
+		color: #0091ae;
+	}
+	.show_password
+	{
+		float: right;
+		margin-right: 22%;
+		color: #0091ae;
+		cursor:pointer;
+	}
+	input[type="checkbox"]
+	{
+		width: 16px;
+		height: 17px;
+		margin: 2px 4px 0;
+		background: white;
+	}
+	.submit
+	{
+		width:80%;
+		background-color: #eaf0f6!important;
+		border-color: #eaf0f6!important;
+		box-shadow: none!important;
+		color: #b0c1d4!important;
+		height:42px;
+		font-size:20px;
+		border:none;
+		font-family:Avenir Next W02,Helvetica,Arial,sans-serif;
+	}
+	.facebook
+	{
+		width:80%;
+		background-color: #4776C4;
+		border-color: #4776C4!important;
+		box-shadow: none!important;
+		color: white;
+		height:42px;
+		font-size:14x;
+		border:none;
+		font-family:Avenir Next W02,Helvetica,Arial,sans-serif;
+	}
+	.checkbox{
+		margin-top:18px;
+	}
+	hr {
+    margin-top: 35px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 2px solid #eee;
+    width: 80%;
+    margin-left: 0%;
+}
+.google
+{
+	width: 42px;
+    position: absolute;
+    background: white;
+    border: 1px solid #4776c4;
+    padding: 5px;
+}
+.container{
+	margin-left:12%;}
+.sso
+{
+	background-color: #425b76;
+    border-color: #425b76;
+    color: #fff;
+	width:80%;
+	height:42px;
+	font-size:14x;
+	border:none;
+	font-family:Avenir Next W02,Helvetica,Arial,sans-serif;
+}
+	.copyright {
+    font-size: 14px;
+    padding: 0 0 15px;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    left: 0;
+    background: rbga(0,0,0,0);
+	text-align: center;
+    margin-left: -20%;
+}
+.private-form__meta{
+	color: red;
+    margin-top: 2%;
+    margin-left: 25%;
+	
+}
+ </style>
+</head>
+<body>
+	<div class = "container">
+		<div class="loginform">
+			<img class="logo" src= "https://static.hsappstatic.net/salesImages/static-1.392/logos/hubspot-standard.svg">
+			<p class="register_link">Don't have an account?<span>Sign up</span></p>
+		</div>
+				<div class="col-md-offset-3 col-md-6">
+		<form method="POST">
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" onblur="validateEmail(this);">
+	  <div class="private-form__meta"><div class="private-form__messages"><small id="username-validationMessage" ></small></div></div>
+    </div>
+    <div class="form-group">
+      <label for="pwd" >Password</label>
+	  <label for="pwd" class="show_password" onclick="myFunction()" id="show">Show Password</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" onblur="validatePassword(this);">
+	  <div class="private-form__meta"><div class="private-form__messages"><small id="password-validationMessage" ></small></div></div>
+    </div>
+	<span>Forgot my password</span>
+	<br>
+	<div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div>
+	<br>
+    <button id = "submit" class="submit" type="submit" class="btn btn-default" disabled="disabled">Log in</button>
+	<br><hr>
+	<div>
+	<img class="google" src="https://static.hsappstatic.net/LoginUI/static-1.2563/img/google-logo.png">
+	</div>
+	<button class="facebook" type="button" class="btn btn-default">Sign in with Google</button>
+	
+	<br><br>
+	<button class="sso" type="button" class="btn btn-default">Log in with SSO</button>
+  </form>
+  <br>
+  <footer class="copyright">©2019 HubSpot, Inc. All Rights Reserved.<br>Privacy Policy</i18n-string><span aria-label="Link opens in a new window" class="private-icon private-icon__low private-link--external__icon">externalLink</span></a></footer>
+</div>
+	</div>
+	<script>
+	function validateEmail(emailField){
+	if(emailField.value == '' || null){
+	document.getElementById("username-validationMessage").innerHTML = "Email is required";
+	return false;
+	}
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+        if (reg.test(emailField.value) == false) 
+        {
+           document.getElementById("username-validationMessage").innerHTML = "Invalid email address";            
+		   return false;
+        }
+		document.getElementById("username-validationMessage").innerHTML = "";
+		
+        return true;
+
+}
+	function myFunction() {
+	  var x = document.getElementById("pwd");
+	  if (x.type === "password") {
+	  document.getElementById("show").innerHTML = "Hide Password";
+		x.type = "text";
+	  } else {
+	  document.getElementById("show").innerHTML = "Show Password";
+		x.type = "password";
+	  }
+	}
+
+	function validatePassword(pwd){
+		if(pwd.value == '' || null)
+		{
+			document.getElementById("password-validationMessage").innerHTML = "Password is required";
+			return false;
+		}
+		var password = document.getElementById("pwd").value;
+			if(password.length>=6)
+			{
+				document.getElementById("password-validationMessage").innerHTML = "";
+				document.getElementById("submit").disabled = false;
+				return true;
+			}
+			else
+			{
+				document.getElementById("password-validationMessage").innerHTML = "Password should be 6 characters";
+				return false;
+			}
+			}
+			
+	</script>
+</body>
+</html>
